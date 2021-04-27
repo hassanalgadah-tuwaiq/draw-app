@@ -16,8 +16,8 @@ namespace DrawApp
         public override void Draw(Graphics context)
         {
             context.DrawLine(this.Pen,
-                StartPoint.X, EndPoint.X
-                , StartPoint.Y, StartPoint.Y
+                StartPoint.X, StartPoint.Y
+                , EndPoint.X, EndPoint.Y
                 );
         }
     }

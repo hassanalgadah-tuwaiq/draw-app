@@ -11,7 +11,7 @@ namespace DrawApp
     {
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
-        public Pen Pen { get; set; }
+        public Pen Pen { get; protected set; }
 
         public Shape(Pen pen)
         {
