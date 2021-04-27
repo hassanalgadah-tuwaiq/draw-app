@@ -15,8 +15,8 @@ namespace DrawApp
     {
         List<Shape> shapes = new List<Shape>();
 
-        ShapeType selectedShapeType = ShapeType.Circle;
-        Pen pen = new Pen(Brushes.Black, 3);
+        ShapeType selectedShapeType = ShapeType.Line;
+        Pen pen = new Pen(Brushes.Black, 5);
 
         /**
          * Tracking drawing line
@@ -25,7 +25,6 @@ namespace DrawApp
         Point startPoint;
         Point currentPoint;
         bool isMouseDown = false;
-        // ref to shapes[last]
         GraphicsPath gPaths = new GraphicsPath();
 
         public Main()
@@ -36,24 +35,25 @@ namespace DrawApp
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             base.OnPaint(e);
-            foreach (Shape shape in shapes) shape.SetPen(pen).Draw(e.Graphics);
+            foreach (Shape shape in shapes)
+            {
+                if (shape.IsSelected == false) shape.SetPen(pen);
+                shape.Draw(e.Graphics);
+            }
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            
-            if (gPaths.IsOutlineVisible(e.Location, pen))
+            if (IsSelectingShape(e.Location))
             {
-                //code
-
-
-
+                ((Panel)sender).Invalidate();
                 return;
             }
+            
 
             if (selectedShapeType == ShapeType.Line)
             {
-                // todo: check if left button clocled
+                // todo: check if left button clicked
                 startPoint = e.Location;
                 currentPoint = e.Location;
                 shapes.Add(new Line(pen)
@@ -63,6 +63,23 @@ namespace DrawApp
                 });
                 isMouseDown = true;
             }
+        }
+
+        protected bool IsSelectingShape(Point mouseClickLocation)
+        {
+            for (int i = 0; i < shapes.Count; i++)
+            {
+                gPaths.Reset();
+                gPaths.AddLine(shapes[i].StartPoint, shapes[i].EndPoint);
+                if(gPaths.IsOutlineVisible(mouseClickLocation, pen))
+                {
+                    shapes[i].IsSelected = true;
+                    shapes[i].SetPen(new Pen(Brushes.Red, pen.Width));
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -81,7 +98,6 @@ namespace DrawApp
             if (selectedShapeType == ShapeType.Line)
             {
                 Line lastLine = shapes[shapes.Count - 1] as Line;
-                gPaths.AddLine(lastLine.StartPoint, lastLine.EndPoint);
                 isMouseDown = false;
             }
         }
@@ -104,9 +120,5 @@ namespace DrawApp
             selectedShapeType = ShapeType.Line;
         }
 
-        private void panel1_Click(object sender, EventArgs e)
-        {
-            // delete this
-        }
     }
 }
