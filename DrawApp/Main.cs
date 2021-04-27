@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace DrawApp
         Point currentPoint;
         bool isMouseDown = false;
         // ref to shapes[last]
+        GraphicsPath gPaths = new GraphicsPath();
 
         public Main()
         {
@@ -39,6 +41,16 @@ namespace DrawApp
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
+            
+            if (gPaths.IsOutlineVisible(e.Location, pen))
+            {
+                //code
+
+
+
+                return;
+            }
+
             if (selectedShapeType == ShapeType.Line)
             {
                 // todo: check if left button clocled
@@ -68,7 +80,8 @@ namespace DrawApp
 
             if (selectedShapeType == ShapeType.Line)
             {
-
+                Line lastLine = shapes[shapes.Count - 1] as Line;
+                gPaths.AddLine(lastLine.StartPoint, lastLine.EndPoint);
                 isMouseDown = false;
             }
         }
@@ -89,6 +102,11 @@ namespace DrawApp
         private void button4_Click(object sender, EventArgs e)
         {
             selectedShapeType = ShapeType.Line;
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            // delete this
         }
     }
 }
