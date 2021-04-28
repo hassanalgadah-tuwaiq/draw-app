@@ -10,7 +10,7 @@ namespace DrawApp
         // todo: refactoring: Create structre for Shape Points and Their selectors
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
-        public Pen Pen { get; protected set; }
+        public Pen Pen {  get; protected set; }
         public bool IsSelected { get; set; }
         public List<Rectangle> Selectors { get; set; }
 
@@ -31,6 +31,11 @@ namespace DrawApp
             this.Pen = pen;
 
             return this;
+        }
+
+        public Pen getPen()
+        {
+            return this.Pen;
         }
     }
 }

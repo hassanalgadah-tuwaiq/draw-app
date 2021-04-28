@@ -30,6 +30,8 @@ namespace DrawApp
         private void InitializeComponent()
         {
             this.panelActionsContainer = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.penPropButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -41,6 +43,8 @@ namespace DrawApp
             // 
             // panelActionsContainer
             // 
+            this.panelActionsContainer.Controls.Add(this.button5);
+            this.panelActionsContainer.Controls.Add(this.button1);
             this.panelActionsContainer.Controls.Add(this.button6);
             this.panelActionsContainer.Controls.Add(this.penPropButton);
             this.panelActionsContainer.Controls.Add(this.button4);
@@ -50,16 +54,40 @@ namespace DrawApp
             this.panelActionsContainer.Location = new System.Drawing.Point(0, 0);
             this.panelActionsContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelActionsContainer.Name = "panelActionsContainer";
-            this.panelActionsContainer.Size = new System.Drawing.Size(125, 337);
+            this.panelActionsContainer.Size = new System.Drawing.Size(107, 292);
             this.panelActionsContainer.TabIndex = 1;
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.Location = new System.Drawing.Point(0, 127);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(107, 24);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Load";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 103);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 24);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.Location = new System.Drawing.Point(0, 91);
+            this.button6.Location = new System.Drawing.Point(0, 79);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(125, 28);
+            this.button6.Size = new System.Drawing.Size(107, 24);
             this.button6.TabIndex = 4;
             this.button6.Text = "Clear Whiteboard";
             this.button6.UseVisualStyleBackColor = true;
@@ -68,10 +96,10 @@ namespace DrawApp
             // penPropButton
             // 
             this.penPropButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.penPropButton.Location = new System.Drawing.Point(0, 66);
+            this.penPropButton.Location = new System.Drawing.Point(0, 57);
             this.penPropButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.penPropButton.Name = "penPropButton";
-            this.penPropButton.Size = new System.Drawing.Size(125, 25);
+            this.penPropButton.Size = new System.Drawing.Size(107, 22);
             this.penPropButton.TabIndex = 3;
             this.penPropButton.Text = "Pen Properties";
             this.penPropButton.UseVisualStyleBackColor = true;
@@ -80,10 +108,10 @@ namespace DrawApp
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.Location = new System.Drawing.Point(0, 44);
+            this.button4.Location = new System.Drawing.Point(0, 38);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 22);
+            this.button4.Size = new System.Drawing.Size(107, 19);
             this.button4.TabIndex = 2;
             this.button4.Text = "Line";
             this.button4.UseVisualStyleBackColor = true;
@@ -92,10 +120,10 @@ namespace DrawApp
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.Location = new System.Drawing.Point(0, 22);
+            this.button3.Location = new System.Drawing.Point(0, 19);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(125, 22);
+            this.button3.Size = new System.Drawing.Size(107, 19);
             this.button3.TabIndex = 1;
             this.button3.Text = "Circle";
             this.button3.UseVisualStyleBackColor = true;
@@ -107,7 +135,7 @@ namespace DrawApp
             this.button2.Location = new System.Drawing.Point(0, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 22);
+            this.button2.Size = new System.Drawing.Size(107, 19);
             this.button2.TabIndex = 0;
             this.button2.Text = "Square";
             this.button2.UseVisualStyleBackColor = true;
@@ -117,10 +145,10 @@ namespace DrawApp
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(125, 0);
+            this.panel1.Location = new System.Drawing.Point(107, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 337);
+            this.panel1.Size = new System.Drawing.Size(493, 292);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -129,9 +157,9 @@ namespace DrawApp
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 337);
+            this.ClientSize = new System.Drawing.Size(600, 292);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelActionsContainer);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -139,8 +167,10 @@ namespace DrawApp
             this.Text = "Draw App";
             this.panelActionsContainer.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
+
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button5;
 
         #endregion
 
